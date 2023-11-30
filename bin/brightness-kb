@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+BRIGHTNESS_STEPS=5
+
+case $1 in
+  up)
+    # increase the backlight by 10%
+    brightnessctl --device='smc::kbd_backlight' set "${BRIGHTNESS_STEPS:-5}%+" -q
+    ;;
+  down)
+    # decrease the backlight by 10%
+    brightnessctl --device='smc::kbd_backlight' set "${BRIGHTNESS_STEPS:-5}%-" -q
+    ;;
+esac

@@ -1,0 +1,92 @@
+##---------- Keybindings for bspwm ----------##
+
+# Terminal (kitty)
+super + Return
+	kitty
+
+# Open application menu
+super + r
+	dmenu_run -fn 'Hack Nerd Font Mono-14'
+#	sh $HOME/.local/bin/rofi_menu.sh
+
+##---------- Applications ----------##
+
+# Launch Apps
+super + {w,e,t,d,c}
+	{chromium,thunar,telegram-desktop,discord,code}
+
+##---------- System Keys ----------##
+
+# Take a screenshot
+Print
+	sh $HOME/.local/bin/takeshot --now
+
+# Take a screenshot to clipboard
+super + shift + s
+	sh $HOME/.local/bin/takeshot --clip
+
+# Take screenshot of active window
+ctrl + Print
+	sh $HOME/.local/bin/takeshot --win
+
+# Take screenshot of area
+ctrl + shift + s
+	sh $HOME/.local/bin/takeshot --area
+
+# Manage brightness-kb
+XF86KbdBrightness{Up,Down}
+    sh $HOME/.local/bin/brightness-kb {up,down}
+
+# Manage brightness
+XF86MonBrightness{Up,Down}
+    sh $HOME/.local/bin/brightness {up,down}
+
+# Manage volume
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +5%
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -5%
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+
+##---------- Bspwm ----------##
+
+# Close & Kill app
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# Reload Keybindings
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Quit/Restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Send the window to another edge of the screen
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Switch workspace
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# Send focused window to another workspace
+super + {_,shift + }{1-6}
+	bspc {desktop -f,node -d} '^{1-6}'
+
+# Expanding windows
+super + control + {Left,Right,Up,Down}
+	bspc node -z {left -40 0,right 40 0,top 0 -40,bottom 0 40}
+
+## Shrinking windows
+super + alt + {Left,Right,Up,Down}
+	bspc node -z {left 40 0,right -40 0,top 0 40,bottom 0 -40}
+
+# Fullscreen or Monocle
+super + s
+	bspc desktop -l next
+
+# Change focus to next window
+alt + Tab
+	bspc node -f {next.local}

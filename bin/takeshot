@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+## Script to take screenshots with maim
+
+time=`date +%d-%m-%Y`
+geometry=`xrandr | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current'`
+dir="`xdg-user-dir PICTURES`/Screenshots"
+file="Screenshot_${time}_${geometry}.png"
+
+# take shots
+shotnow () {
+	cd ${dir} && maim -u -f png "$file"
+}
+
+shotwin () {
+	cd ${dir} && maim -u -f png -i `xdotool getactivewindow` "$file"
+}
+
+shotarea () {
+	cd ${dir} && maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l "$file"
+}
+
+shotclip () {
+	maim -s | xclip -selection clipboard -t image/png
+}
+
+if [[ ! -d "$dir" ]]; then
+	mkdir -p "$dir"
+fi
+
+if [[ "$1" == "--now" ]]; then
+	shotnow
+elif [[ "$1" == "--win" ]]; then
+	shotwin
+elif [[ "$1" == "--area" ]]; then
+	shotarea
+elif [[ "$1" == "--clip" ]]; then
+	shotclip
+else
+	echo -e "Available Options : --now --win --area --clip"
+fi
+
+exit 0
