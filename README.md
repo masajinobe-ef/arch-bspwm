@@ -4,7 +4,7 @@
 
 # BSPWM Config
 
-**BSPWM** Configuration files
+My **BSPWM** Configuration files
 
 ## Infomation
 
@@ -15,13 +15,10 @@
 | Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
 |      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
 |      Menu      |                 [Rofi](https://github.com/davatorium/rofi)                  |
-|   Compositor   |      [Picom Jonaburg](https://github.com/Arian8j2/picom-jonaburg-fix)       |
 |    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
 |  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
 |    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
 |  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
-|     Theme      |             [Tokyo Night](https://www.gnome-look.org/p/1681315)             |
-|     Icons      |         [Tokyo Night](https://github.com/ljmill/tokyo-night-icons)          |
 
 ## Installation
 
@@ -61,30 +58,19 @@ ParallelDownloads = 5
 
 ```sh
 yay -S --needed xorg xorg-xinit \
-bspwm sxhkd polybar feh kitty fish rofi sddm sddm-theme-tokyo-night \
-blueman bluez bluez-utils networkmanager dhcpcd \
+bspwm sxhkd polybar dmenu2 feh kitty fish rofi sddm sddm-theme-tokyo-night \
+blueman bluez bluez-utils \
 acpid brightnessctl sof-firmware \
 mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
 tumbler thunar maim xdotool xclip lxappearance-gtk3 xdg-user-dirs \
 visual-studio-code-bin nano \
 mpv vlc ffmpeg ffmpegthumbnailer obs-studio \
 telegram-desktop qbittorrent discord \
-p7zip unrar unzip gparted \
+p7zip zip unrar unzip gparted \
 fastfetch btop \
 chromium \
 gnu-free-fonts ttf-hack-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
 && fc-cache -fv
-```
-
-**Installing Picom Jonaburg fork**
-
-```sh
-git clone https://github.com/jonaburg/picom
-cd picom
-meson --buildtype=release . build
-ninja -C build
-# To install the binaries in /usr/local/bin (optional)
-sudo ninja -C build install
 ```
 
 **Copy configuration files**
@@ -111,8 +97,6 @@ mkdir -p $HOME/Pictures/Wallpaper && cp -r $HOME/arch_bspwm/misc/wall.jpg $HOME/
 sudo systemctl enable sddm.service
 sudo systemctl enable acpid.service
 sudo systemctl enable bluetooth.service
-sudo systemctl enable dhcpcd.service
-sudo systemctl enable NetworkManager.service
 ```
 
 ---
@@ -127,6 +111,8 @@ sudo nano /etc/locale.gen
 ru_RU.UTF-8 UTF-8
 
 sudo locale-gen
+
+localectl set-locale ru_RU.UTF-8
 ```
 
 **Configure keyboard layout in Xorg**
@@ -134,7 +120,13 @@ sudo locale-gen
 ```sh
 sudo nano /etc/X11/xorg.conf.d/00-keyboard.conf
 
-
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "us,ru"
+        Option "XkbModel" "pc105+inet"
+        Option "XkbOptions" "grp:alt_shift_toggle"
+EndSection
 ```
 
 **Configure keyboard layout in tty**
