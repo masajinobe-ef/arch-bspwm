@@ -88,7 +88,7 @@ sudo chmod +x $HOME/.config/bspwm/bspwmrc
 sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Wallpaper folder
-mkdir -p $HOME/Pictures/Wallpaper && cp -r $HOME/arch_bspwm/misc/wall.jpg $HOME/Pictures/Wallpaper
+mkdir -p $HOME/Pictures/Wallpaper && cp -r $HOME/arch_bspwm/misc/Wallpaper/* $HOME/Pictures/Wallpaper
 ```
 
 **Daemons**
