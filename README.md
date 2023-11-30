@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100%" src="misc/readme.png" />
+  <img width="100%" src="readme.png" />
 </p>
 
 # BSPWM Config
