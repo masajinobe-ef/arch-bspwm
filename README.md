@@ -14,7 +14,7 @@ My **BSPWM** Configuration files
 |     Shell      |                       [Fish](https://fishshell.com/)                        |
 | Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
 |      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
-|      Menu      |                 [Rofi](https://github.com/davatorium/rofi)                  |
+|      Menu      |                 [dmenu2](https://github.com/muff1nman/dmenu2)               |
 |    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
 |  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
 |    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
@@ -58,7 +58,7 @@ ParallelDownloads = 5
 
 ```sh
 yay -S --needed xorg xorg-xinit \
-bspwm sxhkd polybar dmenu2 feh kitty fish rofi sddm sddm-theme-tokyo-night \
+bspwm sxhkd polybar dmenu2 feh kitty fish sddm sddm-theme-tokyo-night \
 blueman bluez bluez-utils \
 acpid brightnessctl sof-firmware \
 mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
@@ -69,7 +69,7 @@ telegram-desktop qbittorrent discord \
 p7zip zip unrar unzip gparted \
 fastfetch btop \
 chromium \
-gnu-free-fonts ttf-hack-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
+gnu-free-fonts ttf-jetbrains-mono-nerd ttf-hack-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
 && fc-cache -fv
 ```
 
@@ -112,32 +112,13 @@ ru_RU.UTF-8 UTF-8
 
 sudo locale-gen
 
-localectl set-locale ru_RU.UTF-8
+sudo localectl set-locale ru_RU.UTF-8
 ```
 
-**Configure keyboard layout in Xorg**
+**Configure keyboard layout in Xorg and tty**
 
 ```sh
-sudo nano /etc/X11/xorg.conf.d/00-keyboard.conf
-
-Section "InputClass"
-        Identifier "system-keyboard"
-        MatchIsKeyboard "on"
-        Option "XkbLayout" "us,ru"
-        Option "XkbModel" "pc105+inet"
-        Option "XkbOptions" "grp:alt_shift_toggle"
-EndSection
-```
-
-**Configure keyboard layout in tty**
-
-```sh
-sudo nano /etc/vconsole.conf
-
-KEYMAP=us
-XKBLAYOUT=us,ru
-XKBMODEL=pc105+inet
-XKBOPTIONS=grp:alt_shift_toggle
+sudo localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
 ```
 
 **Config touchpad (for Notebooks)**
