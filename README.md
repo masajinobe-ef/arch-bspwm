@@ -69,6 +69,7 @@ telegram-desktop qbittorrent discord \
 p7zip zip unrar unzip gparted \
 fastfetch btop \
 chromium \
+papirus-icon-theme \
 gnu-free-fonts ttf-jetbrains-mono-nerd ttf-hack-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
 && fc-cache -fv
 ```
