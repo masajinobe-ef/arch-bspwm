@@ -6,8 +6,11 @@ super + Return
 
 # Open application menu
 super + r
-	dmenu_run -fn 'Hack Nerd Font Mono-14'
-#	sh $HOME/.local/bin/rofi_menu.sh
+	dmenu_run -fn 'JetbrainsMono Nerd Font-14'
+
+# Lockscreen
+super + l
+    betterlockscreen -l -w ~/Pictures/Wallpaper/3.png --show-layout
 
 ##---------- Applications ----------##
 
@@ -51,10 +54,6 @@ XF86AudioMute
 
 ##---------- Bspwm ----------##
 
-# Close & Kill app
-super + {_,shift + }q
-	bspc node -{c,k}
-
 # Reload Keybindings
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -62,6 +61,14 @@ super + Escape
 # Quit/Restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
+
+# Close & Kill app
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# Tiled or Monocle switch
+super + s
+	bspc desktop -l next
 
 # Send the window to another edge of the screen
 super + {_,shift + }{Left,Down,Up,Right}
@@ -71,9 +78,21 @@ super + {_,shift + }{Left,Down,Up,Right}
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
+# Focus the older node in the focus history
+alt + Tab
+	bspc wm -h off; \
+	bspc node newer -f; \
+	bspc wm -h on
+
+# Focus the newer node in the focus history
+super + Tab
+	bspc wm -h off; \
+	bspc node older -f; \
+	bspc wm -h on
+
 # Send focused window to another workspace
-super + {_,shift + }{1-6}
-	bspc {desktop -f,node -d} '^{1-6}'
+super + {_,shift + }{1-5}
+	bspc {desktop -f,node -d} '^{1-5}'
 
 # Expanding windows
 super + control + {Left,Right,Up,Down}
@@ -82,11 +101,3 @@ super + control + {Left,Right,Up,Down}
 ## Shrinking windows
 super + alt + {Left,Right,Up,Down}
 	bspc node -z {left 40 0,right -40 0,top 0 40,bottom 0 -40}
-
-# Fullscreen or Monocle
-super + s
-	bspc desktop -l next
-
-# Change focus to next window
-alt + Tab
-	bspc node -f {next.local}

@@ -13,8 +13,9 @@ My **BSPWM** Configuration files
 |   AUR Helper   |                     [yay](https://github.com/Jguer/yay)                     |
 |     Shell      |                       [Fish](https://fishshell.com/)                        |
 | Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
+|   Compositor   |                 [Picom](https://github.com/jonaburg/picom)                  |
 |      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
-|      Menu      |                 [dmenu2](https://github.com/muff1nman/dmenu2)               |
+|      Menu      |                [dmenu2](https://github.com/muff1nman/dmenu2)                |
 |    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
 |  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
 |    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |

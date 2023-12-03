@@ -5,11 +5,17 @@
 # Run Keybindings Daemon
 pgrep -x sxhkd >/dev/null || sxhkd &
 
+# Run Picom
+picom --experimental-backend &
+
 # Run Polybar
 sh $HOME/.config/polybar/polybar.sh
 
 # Run Dunst
 dunst --config $HOME/.config/dunst/dunstrc &
+
+# Run polkit daemon if doesn't started
+[ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
 
 # Start Wallpaper
 feh --bg-max --no-fehbg --randomize ~/Pictures/Wallpaper/* &
@@ -27,9 +33,9 @@ xset r rate 400 50
 
 ##---------- Window Rules ----------##
 
-bspc monitor -d 1 2 3 4 5 6
+bspc monitor -d 1 2 3 4 5
 
-bspc rule -a discord    desktop=^6 follow=on focus=on
+bspc rule -a discord desktop=^5 follow=on focus=on
 
 ##---------- General Configuration ----------##
 
