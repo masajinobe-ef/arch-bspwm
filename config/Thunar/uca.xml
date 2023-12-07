@@ -12,4 +12,14 @@
 	<startup-notify/>
 	<directories/>
 </action>
+<action>
+	<icon>visual-studio-code</icon>
+	<name>Code</name>
+	<submenu></submenu>
+	<unique-id>1701644385517762-1</unique-id>
+	<command>code</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+</action>
 </actions>

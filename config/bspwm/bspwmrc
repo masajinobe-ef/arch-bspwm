@@ -18,9 +18,39 @@ dunst --config $HOME/.config/dunst/dunstrc &
 [ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
 
 # Start Wallpaper
-feh --bg-max --no-fehbg --randomize ~/Pictures/Wallpaper/* &
+feh --bg-max --no-fehbg --randomize $HOME/Pictures/Wallpapers/* &
 
 ##---------- X Settings ----------##
+
+# Parse colors from "~/.Xresources"
+xrdb -override $HOME/.Xresources
+
+xrdb_query()
+{
+    [ -n "$XRDB_QUERY" ] || XRDB_QUERY="$(xrdb -query)"
+
+    echo "$XRDB_QUERY" | while IFS=';' read -r STRING; do
+        [ "${1}" = "${STRING%%\	*}" ] || continue
+        echo "${STRING##*\	}"
+        break
+    done
+}
+
+getcolors()
+{
+    #FOREGROUND="$(xrdb_query '*.foreground:')"
+    BACKGROUND="$(xrdb_query '*.background:')"
+    #BLACK="$(xrdb_query '*.color0:')"
+    #RED="$(xrdb_query '*.color1:')"
+    #GREEN="$(xrdb_query '*.color2:')"
+    #YELLOW="$(xrdb_query '*.color3:')"
+    #BLUE="$(xrdb_query '*.color4:')"
+    #MAGENTA="$(xrdb_query '*.color5:')"
+    #CYAN="$(xrdb_query '*.color6:')"
+    #WHITE="$(xrdb_query '*.color7:')"
+}
+
+getcolors
 
 # Fix Cursor
 xsetroot -cursor_name left_ptr &
@@ -35,7 +65,7 @@ xset r rate 400 50
 
 bspc monitor -d 1 2 3 4 5
 
-bspc rule -a discord desktop=^5 follow=on focus=on
+# bspc rule -a discord desktop=^5 follow=on focus=on
 
 ##---------- General Configuration ----------##
 
