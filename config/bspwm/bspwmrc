@@ -18,7 +18,7 @@ dunst --config $HOME/.config/dunst/dunstrc &
 [ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
 
 # Start Wallpaper
-feh --bg-max --no-fehbg --randomize $HOME/Pictures/Wallpapers/* &
+feh --bg-max --no-fehbg --randomize $HOME/Wallpapers/* &
 
 ##---------- X Settings ----------##
 
@@ -60,6 +60,9 @@ xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144 &
 
 # Set Keyboard Repeat Delay and Rate
 xset r rate 400 50
+
+# Set Mouse Sensitivity
+xinput --set-prop 13 'libinput Accel Speed' -0.7
 
 ##---------- Window Rules ----------##
 

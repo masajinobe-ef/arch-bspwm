@@ -28,7 +28,9 @@ My **BSPWM** Configuration files
 The initial installation of Yay
 
 ```sh
-pacman -S --needed nano git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+pacman -S --needed nano git base-devel
+git clone https://aur.archlinux.org/yay.git && cd yay 
+makepkg -si
 ```
 
 **MAKEPKG**
@@ -58,20 +60,20 @@ ParallelDownloads = 5
 > Assuming your **AUR Helper** is [yay](https://github.com/Jguer/yay).
 
 ```sh
-yay -S --needed xorg xorg-xinit \
-bspwm sxhkd polybar dmenu2 feh kitty fish sddm sddm-theme-tokyo-night \
+yay -S --needed xorg xorg-xinit xorg-xrdb \
+bspwm sxhkd polybar dmenu2 feh kitty fish \
 blueman bluez bluez-utils \
 acpid brightnessctl sof-firmware \
 mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
-tumbler thunar maim xdotool xclip lxappearance-gtk3 xdg-user-dirs \
+tumbler thunar maim xdotool xclip lxappearance-gtk3 reflector \
 visual-studio-code-bin nano \
 mpv vlc ffmpeg ffmpegthumbnailer obs-studio \
 telegram-desktop qbittorrent discord \
-p7zip zip unrar unzip gparted \
+p7zip zip unrar unzip \
 fastfetch btop \
 chromium \
 papirus-icon-theme \
-gnu-free-fonts ttf-jetbrains-mono-nerd ttf-hack-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
+ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
 && fc-cache -fv
 ```
 
@@ -82,21 +84,18 @@ gnu-free-fonts ttf-jetbrains-mono-nerd ttf-hack-nerd noto-fonts noto-fonts-emoji
 mkdir -p $HOME/.config && cp -r $HOME/arch_bspwm/config/* $HOME/.config
 # /.local/bin
 mkdir -p $HOME/.local/bin && cp -r $HOME/arch_bspwm/bin/* $HOME/.local/bin
-# /etc
-cp -r $HOME/arch_bspwm/etc/sddm.conf $HOME/etc
 
 # Make executable
 sudo chmod +x $HOME/.config/bspwm/bspwmrc
 sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Wallpaper folder
-mkdir -p $HOME/Pictures/Wallpaper && cp -r $HOME/arch_bspwm/misc/Wallpaper/* $HOME/Pictures/Wallpaper
+mkdir -p $HOME/Wallpapers && cp -r $HOME/arch_bspwm/misc/Wallpapers/* $HOME/Wallpapers
 ```
 
 **Daemons**
 
 ```sh
-sudo systemctl enable sddm.service
 sudo systemctl enable acpid.service
 sudo systemctl enable bluetooth.service
 ```

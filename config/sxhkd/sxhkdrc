@@ -10,7 +10,7 @@ super + r
 
 # Lockscreen
 super + l
-    betterlockscreen -l -w ~/Pictures/Wallpaper/3.png --show-layout
+    betterlockscreen -l --show-layout
 
 ##---------- Applications ----------##
 
