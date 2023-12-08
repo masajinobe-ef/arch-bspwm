@@ -9,7 +9,7 @@ super + r
 	dmenu_run -fn 'JetbrainsMono Nerd Font-14'
 
 # Lockscreen
-super + l
+super + b
     betterlockscreen -l --show-layout
 
 ##---------- Applications ----------##
@@ -80,6 +80,10 @@ super + {apostrophe,semicolon,slash}
 
 # Send the window to another edge of the screen
 super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Send the window to another edge of the screen
+super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # Switch workspace
