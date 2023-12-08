@@ -154,3 +154,24 @@ EndSection
 # bash
 sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 ```
+
+**Fisher**
+
+```sh
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
+Fish Plugins List:
+
+```
+jorgebucaran/fisher
+jethrokuan/z
+patrickf1/fzf.fish
+franciscolourenco/done
+jorgebucaran/autopair.fish
+nickeb96/puffer-fish
+ramlev/mkcd
+meaningful-ooo/sponge
+gazorby/fish-abbreviation-tips
+ilancosman/tide@v6
+```
