@@ -8,18 +8,18 @@ My **BSPWM** Configuration files
 
 ## Infomation
 
-|       OS       |                    [Arch Linux](https://archlinux.org/)                     |
-| :------------: | :-------------------------------------------------------------------------: |
-|   AUR Helper   |                     [yay](https://github.com/Jguer/yay)                     |
-|     Shell      |                       [Fish](https://fishshell.com/)                        |
-| Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
-|   Compositor   |                 [Picom](https://github.com/jonaburg/picom)                  |
-|      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
-|      Menu      |                [dmenu2](https://github.com/muff1nman/dmenu2)                |
-|    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
-|  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
-|    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
-|  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
+|       OS       |                         [Arch Linux](https://archlinux.org/)                         |
+| :------------: | :----------------------------------------------------------------------------------: |
+|   AUR Helper   |                         [yay](https://github.com/Jguer/yay)                          |
+|     Shell      |                            [Fish](https://fishshell.com/)                            |
+| Window Manager |                    [BSPWM](https://github.com/baskerville/bspwm)                     |
+|   Compositor   |                 [Picom Junaburg](https://github.com/jonaburg/picom)                  |
+|      Bar       |                    [Polybar](https://github.com/polybar/polybar)                     |
+|      Menu      |                    [dmenu2](https://github.com/muff1nman/dmenu2)                     |
+|    Terminal    |                     [Kitty](https://github.com/kovidgoyal/kitty)                     |
+|  File Manager  |             [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)             |
+|    Browser     |           [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)           |
+|  Text Editor   | [VS Code / nano / neovim](https://aur.archlinux.org/packages/visual-studio-code-bin) |
 
 ## Installation
 
@@ -29,7 +29,7 @@ The initial installation of Yay
 
 ```sh
 pacman -S --needed nano git base-devel
-git clone https://aur.archlinux.org/yay.git && cd yay 
+git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 ```
 
@@ -60,21 +60,30 @@ ParallelDownloads = 5
 > Assuming your **AUR Helper** is [yay](https://github.com/Jguer/yay).
 
 ```sh
-yay -S --needed xorg xorg-xinit xorg-xrdb \
+yay -S --needed \
+xorg xorg-xinit xorg-xrdb \
 bspwm sxhkd polybar dmenu2 feh kitty fish \
-blueman bluez bluez-utils \
-acpid brightnessctl sof-firmware \
-mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
-tumbler thunar maim xdotool xclip lxappearance-gtk3 reflector \
-visual-studio-code-bin nano \
-mpv vlc ffmpeg ffmpegthumbnailer obs-studio \
-telegram-desktop qbittorrent discord \
+acpid brightnessctl \
+thunar xdg-user-dirs tumbler lxappearance-gtk3 \
+visual-studio-code-bin nano neovim \
+vlc ffmpeg ffmpegthumbnailer \
+telegram-desktop qbittorrent discord chromium \
+fastfetch btop lsd fzf fd bat maim xdotool xclip reflector \
 p7zip zip unrar unzip \
-fastfetch btop \
-chromium \
-papirus-icon-theme \
-ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
+ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
+mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
+blueman bluez bluez-utils sof-firmware \
 && fc-cache -fv
+```
+
+Picom Compiling
+
+```sh
+git clone https://github.com/jonaburg/picom && cd picom
+meson --buildtype=release . build
+ninja -C build
+# To install the binaries in /usr/local/bin (optional)
+sudo ninja -C build install
 ```
 
 **Copy configuration files**
@@ -112,8 +121,6 @@ sudo nano /etc/locale.gen
 ru_RU.UTF-8 UTF-8
 
 sudo locale-gen
-
-sudo localectl set-locale ru_RU.UTF-8
 ```
 
 **Configure keyboard layout in Xorg and tty**
