@@ -70,6 +70,14 @@ super + {_,shift + }q
 super + s
 	bspc desktop -l next
 
+# Preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Split horizontal, vertical or cancel
+super + {apostrophe,semicolon,slash}
+	bspc node -p {east,south,cancel}
+
 # Send the window to another edge of the screen
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
@@ -78,17 +86,9 @@ super + {_,shift + }{Left,Down,Up,Right}
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# Focus the older node in the focus history
-alt + Tab
-	bspc wm -h off; \
-	bspc node newer -f; \
-	bspc wm -h on
-
-# Focus the newer node in the focus history
-super + Tab
-	bspc wm -h off; \
-	bspc node older -f; \
-	bspc wm -h on
+# Change focus to next window, including floating window
+alt + {_,shift + }Tab
+	bspc node -f {next.local,prev.local}
 
 # Send focused window to another workspace
 super + {_,shift + }{1-5}
@@ -96,8 +96,9 @@ super + {_,shift + }{1-5}
 
 # Expanding windows
 super + control + {Left,Right,Up,Down}
-	bspc node -z {left -40 0,right 40 0,top 0 -40,bottom 0 40}
-
+	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+	
 ## Shrinking windows
 super + alt + {Left,Right,Up,Down}
-	bspc node -z {left 40 0,right -40 0,top 0 40,bottom 0 -40}
+	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+
