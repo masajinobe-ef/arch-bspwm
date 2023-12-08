@@ -64,7 +64,7 @@ yay -S --needed \
 xorg xorg-xinit xorg-xrdb \
 bspwm sxhkd polybar dmenu2 feh kitty fish \
 acpid brightnessctl \
-thunar xdg-user-dirs tumbler lxappearance-gtk3 \
+thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
 visual-studio-code-bin nano neovim \
 vlc ffmpeg ffmpegthumbnailer \
 telegram-desktop qbittorrent discord chromium \
