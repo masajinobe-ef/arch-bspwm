@@ -13,9 +13,9 @@
   <property name="misc-text-beside-icons" type="bool" value="false"/>
   <property name="misc-thumbnail-draw-frames" type="bool" value="false"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_50_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="196,177,177,50,93,366,75,141,1293,75,129,87,180,177"/>
+  <property name="last-details-view-column-widths" type="string" value="196,177,416,50,93,366,75,141,1026,75,129,96,180,196"/>
   <property name="last-details-view-visible-columns" type="string" value="THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_TYPE"/>
-  <property name="last-details-view-fixed-columns" type="bool" value="false"/>
+  <property name="last-details-view-fixed-columns" type="bool" value="true"/>
   <property name="misc-folder-item-count" type="string" value="THUNAR_FOLDER_ITEM_COUNT_NEVER"/>
   <property name="last-toolbar-item-order" type="string" value="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"/>
   <property name="last-toolbar-visible-buttons" type="string" value="0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1"/>
