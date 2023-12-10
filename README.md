@@ -72,7 +72,7 @@ fastfetch btop lsd fzf fd bat maim xdotool xclip reflector \
 p7zip zip unrar unzip \
 ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
 mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
-blueman bluez bluez-utils sof-firmware \
+bluez bluez-utils sof-firmware \
 && fc-cache -fv
 ```
 
