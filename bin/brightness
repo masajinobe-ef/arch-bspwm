@@ -2,12 +2,12 @@
 BRIGHTNESS_STEPS=5
 
 case $1 in
-  up)
-    # increase the backlight by 10%
-    brightnessctl set "${BRIGHTNESS_STEPS:-5}%+" -q
-    ;;
-  down)
-    # decrease the backlight by 10%
-    brightnessctl set "${BRIGHTNESS_STEPS:-5}%-" -q
-    ;;
+up)
+  # increase the backlight by 10%
+  brightnessctl set "${BRIGHTNESS_STEPS:-5}%+" -q
+  ;;
+down)
+  # decrease the backlight by 10%
+  brightnessctl set "${BRIGHTNESS_STEPS:-5}%-" -q
+  ;;
 esac
