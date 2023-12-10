@@ -1,8 +1,8 @@
-<p align="center">
-  <img width="100%" src="readme.png" />
-</p>
+# BSPWM ARCH
 
-# BSPWM Config
+<p align="center">
+  <img width="100%" src="readme.png" alt="readme"/>
+</p>
 
 My **BSPWM** Configuration files
 
@@ -33,7 +33,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 ```
 
-**MAKEPKG**
+#### MAKEPKG
 
 Speed up compiling of AUR packages
 
@@ -43,7 +43,7 @@ sudo nano /etc/makepkg.conf
 MAKEFLAGS="-j8"
 ```
 
-**Pacman setting-up**
+#### Pacman setting-up
 
 Parallel downloading of packages
 
@@ -55,7 +55,7 @@ ParallelDownloads = 5
 
 ---
 
-**Installing packages**
+#### Installing packages
 
 > Assuming your **AUR Helper** is [yay](https://github.com/Jguer/yay).
 
@@ -86,7 +86,7 @@ ninja -C build
 sudo ninja -C build install
 ```
 
-**Copy configuration files**
+#### Copy configuration files
 
 ```sh
 # /.config
@@ -102,7 +102,7 @@ sudo chmod +x $HOME/.config/polybar/polybar.sh
 mkdir -p $HOME/Wallpapers && cp -r $HOME/arch_bspwm/misc/Wallpapers/* $HOME/Wallpapers
 ```
 
-**Daemons**
+#### Daemons
 
 ```sh
 sudo systemctl enable acpid.service
@@ -111,9 +111,9 @@ sudo systemctl enable bluetooth.service
 
 ---
 
-### Xorg setting-up
+#### Xorg setting-up
 
-**Adding language**
+Adding language
 
 ```sh
 sudo nano /etc/locale.gen
@@ -123,13 +123,13 @@ ru_RU.UTF-8 UTF-8
 sudo locale-gen
 ```
 
-**Configure keyboard layout in Xorg and tty**
+Configure keyboard layout in Xorg and tty
 
 ```sh
 sudo localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
 ```
 
-**Config touchpad (for Notebooks)**
+Config touchpad (for Notebooks)
 
 ```sh
 sudo nano /etc/X11/xorg.conf.d/30-touchpad.conf
@@ -146,16 +146,16 @@ EndSection
 
 ---
 
-### Other
+#### Other
 
-**Vencord (Discord)**
+Vencord (Discord)
 
 ```sh
 # bash
 sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 ```
 
-**Fisher (Fish)**
+Fisher (Fish)
 
 ```sh
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
@@ -163,7 +163,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 Fish Plugins List:
 
-```
+```sh
 jorgebucaran/fisher
 jethrokuan/z
 patrickf1/fzf.fish

@@ -25,8 +25,7 @@ feh --bg-max --no-fehbg --randomize $HOME/Wallpapers/* &
 # Parse colors from "~/.Xresources"
 xrdb -override $HOME/.Xresources
 
-xrdb_query()
-{
+xrdb_query() {
     [ -n "$XRDB_QUERY" ] || XRDB_QUERY="$(xrdb -query)"
 
     echo "$XRDB_QUERY" | while IFS=';' read -r STRING; do
@@ -36,8 +35,7 @@ xrdb_query()
     done
 }
 
-getcolors()
-{
+getcolors() {
     #FOREGROUND="$(xrdb_query '*.foreground:')"
     BACKGROUND="$(xrdb_query '*.background:')"
     #BLACK="$(xrdb_query '*.color0:')"
