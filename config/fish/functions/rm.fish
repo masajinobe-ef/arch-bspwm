@@ -1,4 +1,4 @@
-function rm --description 'alias rm=rm -vrf'
- command rm -vr $argv
+function rm --description 'alias rm=rm -rf'
+ command rm -rf $argv
         
 end

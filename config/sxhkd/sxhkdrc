@@ -70,6 +70,22 @@ super + {_,shift + }q
 super + s
 	bspc desktop -l next
 
+# Tiled or Fullscreen switch
+#super + {g,m}
+#    bspc node -t {tiled,fullscreen}
+
+# Toggle floating mode for the focused window
+#super + f
+#    bspc node -t floating
+
+# Resize the focused floating window with the arrow keys
+#super + shift + {Left,Down,Up,Right}
+#	bspc node -v {-15 0,0 15,0 -15,15 0}
+
+# Move the focused floating window with h,j,k,l
+#super + shift + {h,j,k,l}
+#	bspc node -v {-15 0,0 15,0 -15,15 0}
+
 # Preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
