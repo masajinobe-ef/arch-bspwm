@@ -25,7 +25,8 @@ feh --bg-max --no-fehbg --randomize $HOME/Wallpapers/* &
 # Parse colors from "~/.Xresources"
 xrdb -override $HOME/.Xresources
 
-xrdb_query() {
+xrdb_query()
+{
     [ -n "$XRDB_QUERY" ] || XRDB_QUERY="$(xrdb -query)"
 
     echo "$XRDB_QUERY" | while IFS=';' read -r STRING; do
@@ -35,7 +36,8 @@ xrdb_query() {
     done
 }
 
-getcolors() {
+getcolors()
+{
     #FOREGROUND="$(xrdb_query '*.foreground:')"
     BACKGROUND="$(xrdb_query '*.background:')"
     #BLACK="$(xrdb_query '*.color0:')"
@@ -60,7 +62,7 @@ xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144 &
 xset r rate 400 50
 
 # Set Mouse Sensitivity
-xinput --set-prop 13 'libinput Accel Speed' -0.7
+xinput --set-prop 13 'libinput Accel Speed' -0.85
 
 ##---------- Window Rules ----------##
 
