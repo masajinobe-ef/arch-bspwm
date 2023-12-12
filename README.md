@@ -8,18 +8,18 @@ My **BSPWM** Configuration files
 
 ## Infomation
 
-|       OS       |                         [Arch Linux](https://archlinux.org/)                         |
-| :------------: | :----------------------------------------------------------------------------------: |
-|   AUR Helper   |                         [yay](https://github.com/Jguer/yay)                          |
-|     Shell      |                            [Fish](https://fishshell.com/)                            |
-| Window Manager |                    [BSPWM](https://github.com/baskerville/bspwm)                     |
-|   Compositor   |                 [Picom Junaburg](https://github.com/jonaburg/picom)                  |
-|      Bar       |                    [Polybar](https://github.com/polybar/polybar)                     |
-|      Menu      |                    [dmenu2](https://github.com/muff1nman/dmenu2)                     |
-|    Terminal    |                     [Kitty](https://github.com/kovidgoyal/kitty)                     |
-|  File Manager  |             [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)             |
-|    Browser     |           [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)           |
-|  Text Editor   | [VS Code / nano / neovim](https://aur.archlinux.org/packages/visual-studio-code-bin) |
+|       OS       |                    [Arch Linux](https://archlinux.org/)                     |
+| :------------: | :-------------------------------------------------------------------------: |
+|   AUR Helper   |                     [yay](https://github.com/Jguer/yay)                     |
+|     Shell      |                       [Fish](https://fishshell.com/)                        |
+| Window Manager |                [BSPWM](https://github.com/baskerville/bspwm)                |
+|   Compositor   |             [Picom Junaburg](https://github.com/jonaburg/picom)             |
+|      Bar       |                [Polybar](https://github.com/polybar/polybar)                |
+|      Menu      |                [dmenu2](https://github.com/muff1nman/dmenu2)                |
+|    Terminal    |                [Kitty](https://github.com/kovidgoyal/kitty)                 |
+|  File Manager  |        [Thunar](https://archlinux.org/packages/extra/x86_64/thunar)         |
+|    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
+|  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
 
 ## Installation
 
@@ -61,19 +61,19 @@ ParallelDownloads = 5
 
 ```sh
 yay -S --needed \
-xorg xorg-xinit xorg-xrdb \
-bspwm sxhkd polybar dmenu2 feh kitty fish dunst betterlockscreen \
-acpid brightnessctl \
-thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
-visual-studio-code-bin nano \
-mpv ffmpeg ffmpegthumbnailer \
-telegram-desktop qbittorrent discord chromium \
-fastfetch btop lsd fzf fd bat maim xdotool xclip reflector \
-p7zip zip unrar unzip \
-ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
-mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
-bluez bluez-utils sof-firmware \
-&& fc-cache -fv
+  xorg xorg-xinit xorg-xrdb \
+  bspwm sxhkd polybar dmenu2 feh kitty fish dunst betterlockscreen \
+  acpid brightnessctl \
+  thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
+  visual-studio-code-bin nano \
+  mpv ffmpeg ffmpegthumbnailer \
+  telegram-desktop qbittorrent discord chromium \
+  fastfetch btop lsd fzf fd bat maim xdotool xclip reflector \
+  p7zip zip unrar unzip \
+  ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk papirus-icon-theme \
+  mesa mesa-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader \
+  bluez bluez-utils sof-firmware \
+  && fc-cache -fv
 ```
 
 Picom Compiling
@@ -100,6 +100,8 @@ sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Misc
 cp -r $HOME/arch_bspwm/misc/* $HOME
+# Themes
+mkdir -p $HOME/.themes && cp -r $HOME/arch_bspwm/themes/* $HOME/.themes
 ```
 
 #### Daemons
@@ -172,6 +174,5 @@ jorgebucaran/autopair.fish
 nickeb96/puffer-fish
 ramlev/mkcd
 meaningful-ooo/sponge
-gazorby/fish-abbreviation-tips
 ilancosman/tide@v6
 ```
