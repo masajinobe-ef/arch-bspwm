@@ -28,7 +28,7 @@ My **BSPWM** Configuration files
 The initial installation of Yay
 
 ```sh
-pacman -S --needed nano git base-devel
+pacman -Syu --needed nano git base-devel
 git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 ```

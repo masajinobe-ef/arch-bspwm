@@ -20,7 +20,7 @@ print_message "${GREEN}" "        \/           \/       \/          \/ "
 
 # Install essential packages
 print_message "${GREEN}[INFO] Installing essential packages...${NC}"
-pacman -S --needed --noconfirm nano git reflector base-devel
+pacman -Syu --needed --noconfirm nano git reflector base-devel
 
 # Set MAKEFLAGS for faster compilation (adjust the value based on your system)
 print_message "${GREEN}[INFO] Setting MAKEFLAGS for faster compilation...${NC}"
