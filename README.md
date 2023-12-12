@@ -62,7 +62,7 @@ ParallelDownloads = 5
 ```sh
 yay -S --needed \
 xorg xorg-xinit xorg-xrdb \
-bspwm sxhkd polybar dmenu2 feh kitty fish dunst \
+bspwm sxhkd polybar dmenu2 feh kitty fish dunst betterlockscreen \
 acpid brightnessctl \
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
 visual-studio-code-bin nano \
