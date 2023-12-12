@@ -62,11 +62,11 @@ ParallelDownloads = 5
 ```sh
 yay -S --needed \
 xorg xorg-xinit xorg-xrdb \
-bspwm sxhkd polybar dmenu2 feh kitty fish \
+bspwm sxhkd polybar dmenu2 feh kitty fish dunst \
 acpid brightnessctl \
 thunar xdg-user-dirs xfce-polkit tumbler lxappearance-gtk3 \
-visual-studio-code-bin nano neovim \
-vlc ffmpeg ffmpegthumbnailer \
+visual-studio-code-bin nano \
+mpv ffmpeg ffmpegthumbnailer \
 telegram-desktop qbittorrent discord chromium \
 fastfetch btop lsd fzf fd bat maim xdotool xclip reflector \
 p7zip zip unrar unzip \
@@ -98,8 +98,8 @@ mkdir -p $HOME/.local/bin && cp -r $HOME/arch_bspwm/bin/* $HOME/.local/bin
 sudo chmod +x $HOME/.config/bspwm/bspwmrc
 sudo chmod +x $HOME/.config/polybar/polybar.sh
 
-# Wallpaper folder
-mkdir -p $HOME/Wallpapers && cp -r $HOME/arch_bspwm/misc/Wallpapers/* $HOME/Wallpapers
+# Misc
+cp -r $HOME/arch_bspwm/misc/* $HOME
 ```
 
 #### Daemons
