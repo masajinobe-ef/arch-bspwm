@@ -79,10 +79,10 @@ sudo systemctl enable bluetooth.service
 # Adding language locale
 print_message "${BLUE}[INFO] Adding language locale...${NC}"
 echo "ru_RU.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
-locale-gen
+sudo locale-gen
 
 # Set X11 keymap
 print_message "${BLUE}[INFO] Setting X11 keymap...${NC}"
-localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
+sudo localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
 
 print_message "${BLUE}[INFO] Installation completed successfully.${NC}"
