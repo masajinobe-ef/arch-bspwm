@@ -3,6 +3,7 @@
 # Set colors for better visibility
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Function to display colored messages
@@ -11,37 +12,35 @@ function print_message {
 }
 
 # Print Arch Linux art
-print_message "${GREEN}" "  _______ .__                             .___"
-print_message "${GREEN}" " /  _____||__| ______ ____   ____ ___.__.| _/"
-print_message "${GREEN}" "/   \  ___ |  |  \__  \\_  __ <   |  || __ | "
-print_message "${GREEN}" "\    \_\  \|  |  // __ \|  | \/\___  || \/ | "
-print_message "${GREEN}" " \______  /|__| (____  /__|   / ____||____ | "
-print_message "${GREEN}" "        \/           \/       \/          \/ "
+print_message "${BLUE}" "———————————————————————————————————————————————${NC}"
+print_message "${BLUE}" "Arch Linux${NC}"
+print_message "${BLUE}" "BSPWM configuration files by masajinobe${NC}"
+print_message "${BLUE}" "———————————————————————————————————————————————${NC}"
 
 # Install essential packages
-print_message "${GREEN}[INFO] Installing essential packages...${NC}"
-pacman -Syu --needed --noconfirm nano git reflector base-devel
+print_message "${BLUE}[INFO] Installing essential packages...${NC}"
+sudo pacman -Syu --needed --noconfirm nano git reflector base-devel
 
 # Set MAKEFLAGS for faster compilation (adjust the value based on your system)
-print_message "${GREEN}[INFO] Setting MAKEFLAGS for faster compilation...${NC}"
-echo 'MAKEFLAGS="-j8"' | tee -a /etc/makepkg.conf
+print_message "${BLUE}[INFO] Setting MAKEFLAGS for faster compilation...${NC}"
+echo 'MAKEFLAGS="-j8"' | sudo tee -a /etc/makepkg.conf
 
 # Enable parallel downloading of packages
-print_message "${GREEN}[INFO] Enabling parallel downloading of packages...${NC}"
-echo 'ParallelDownloads = 5' | tee -a /etc/pacman.conf
+print_message "${BLUE}[INFO] Enabling parallel downloading of packages...${NC}"
+echo 'ParallelDownloads = 5' | sudo tee -a /etc/pacman.conf
 
 # Run reflector to update mirrorlist
-print_message "${GREEN}[INFO] Running reflector to update mirrorlist...${NC}"
-reflector --verbose --latest 10 -p https --sort rate --save /etc/pacman.d/mirrorlist
+print_message "${BLUE}[INFO] Running reflector to update mirrorlist...${NC}"
+sudo reflector --verbose --latest 10 -p https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Clone and install Yay
-print_message "${GREEN}[INFO] Cloning and installing Yay...${NC}"
+print_message "${BLUE}[INFO] Cloning and installing Yay...${NC}"
 cd $HOME
 git clone https://aur.archlinux.org/yay.git && cd yay
 makepkg -si
 
 # Install required packages using Yay
-print_message "${GREEN}[INFO] Installing required packages using Yay...${NC}"
+print_message "${BLUE}[INFO] Installing required packages using Yay...${NC}"
 yay -S --needed --noconfirm \
     xorg xorg-xinit xorg-xrdb \
     bspwm sxhkd polybar dmenu2 feh kitty fish dunst betterlockscreen \
@@ -57,37 +56,33 @@ yay -S --needed --noconfirm \
     bluez bluez-utils sof-firmware
 
 # Update font cache
-print_message "${GREEN}[INFO] Updating font cache...${NC}"
+print_message "${BLUE}[INFO] Updating font cache...${NC}"
 fc-cache -fv
 
 # Copy configuration files
-print_message "${GREEN}[INFO] Copying configuration files...${NC}"
+print_message "${BLUE}[INFO] Copying configuration files...${NC}"
 mkdir -p $HOME/.config && cp -r $HOME/arch_bspwm/config/* $HOME/.config
 mkdir -p $HOME/.local/bin && cp -r $HOME/arch_bspwm/bin/* $HOME/.local/bin
 cp -r $HOME/arch_bspwm/misc/* $HOME
 mkdir -p $HOME/.themes && cp -r $HOME/arch_bspwm/themes/* $HOME/.themes
 
 # Set execute permissions for scripts
-print_message "${GREEN}[INFO] Setting execute permissions for scripts...${NC}"
-chmod +x $HOME/.config/bspwm/bspwmrc
-chmod +x $HOME/.config/polybar/polybar.sh
+print_message "${BLUE}[INFO] Setting execute permissions for scripts...${NC}"
+sudo chmod +x $HOME/.config/bspwm/bspwmrc
+sudo chmod +x $HOME/.config/polybar/polybar.sh
 
 # Enable services
-print_message "${GREEN}[INFO] Enabling services...${NC}"
-systemctl enable acpid.service
-systemctl enable bluetooth.service
+print_message "${BLUE}[INFO] Enabling services...${NC}"
+sudo systemctl enable acpid.service
+sudo systemctl enable bluetooth.service
 
 # Adding language locale
-print_message "${GREEN}[INFO] Adding language locale...${NC}"
-echo "ru_RU.UTF-8 UTF-8" | tee -a /etc/locale.gen
+print_message "${BLUE}[INFO] Adding language locale...${NC}"
+echo "ru_RU.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
 locale-gen
 
 # Set X11 keymap
-print_message "${GREEN}[INFO] Setting X11 keymap...${NC}"
+print_message "${BLUE}[INFO] Setting X11 keymap...${NC}"
 localectl --no-convert set-x11-keymap us,ru pc105+inet qwerty grp:alt_shift_toggle
 
-# Override Xresources
-print_message "${GREEN}[INFO] Overriding Xresources...${NC}"
-xrdb -override $HOME/.Xresources
-
-print_message "${GREEN}[INFO] Installation completed successfully.${NC}"
+print_message "${BLUE}[INFO] Installation completed successfully.${NC}"
