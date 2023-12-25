@@ -21,6 +21,33 @@ My **BSPWM** Configuration files
 |    Browser     |      [Chromium](https://archlinux.org/packages/extra/x86_64/chromium)       |
 |  Text Editor   | [VS Code / nano](https://aur.archlinux.org/packages/visual-studio-code-bin) |
 
+## Shortcuts
+
+|                     Shortcuts                     |                          sxhkd                           |
+| :-----------------------------------------------: | :------------------------------------------------------: |
+|                  super + Return                   |                         Terminal                         |
+|                     super + r                     |                     Application menu                     |
+|                     super + b                     |                        Lockscreen                        |
+|                 super + w/e/t/d/c                 |        Chromium, Thunar, Telegram, Discord, Code         |
+|                       Print                       |                    Take a screenshot                     |
+|                 super + shift + s                 |              Take a screenshot to clipboard              |
+|                   ctrl + Print                    |             Take screenshot of active window             |
+|                 ctrl + shift + s                  |                 Take screenshot of area                  |
+|                  super + Escape                   |                    Reload Keybindings                    |
+|                  super + alt + q                  |                        Quit bspwm                        |
+|                  super + alt + r                  |                      Restart bspwm                       |
+|                     super + q                     |                        Close app                         |
+|                 super + shift + q                 |                         Kill app                         |
+|                     super + s                     |                 Tiled or Monocle switch                  |
+|                super + ctrl + 1-9                 |                   Preselect the ratio                    |
+|                   super + ' ; /                   |           Split horizontal, vertical or cancel           |
+| super + (shift) + Left/Down/Up/Right (or h/j/k/l) | Select and Send the window to another edge of the screen |
+|                    super + { }                    |                     Switch workspace                     |
+|                alt + (shift) + Tab                |  Change focus to next window, including floating window  |
+|               super + (shift) + 1-5               |         Send focused window to another workspace         |
+|       super + control + Left/Right/Up/Down        |                    Expanding windows                     |
+|         super + alt + Left/Right/Up/Down          |                    Shrinking windows                     |
+
 ## Installation
 
 ### AUR Helper
